@@ -9,6 +9,9 @@ public class Backpack {
 	private Textbook textbook;
 
 	private void packAndCheck() {
+		Pencil pencil=new Pencil();
+		Ruler ruler=new Ruler();
+		Textbook textbook=new Textbook();
 		// Your mission is to go to school.
 		// 1. First you need to put all your supplies into your backpack - use the
 		// putInBackpack(...) methods
@@ -86,7 +89,7 @@ class Ruler extends Supply {
 class Textbook extends Supply {
 	Textbook() {
 		this.name = "textbook";
-		System.out.println("You got your boring textbook");
+		System.out.println("You got your boring textbook...");
 	}
 
 	public void read() {
