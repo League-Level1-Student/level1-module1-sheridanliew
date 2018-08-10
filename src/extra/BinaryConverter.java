@@ -3,7 +3,6 @@ package extra;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.accessibility.AccessibleContext;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -12,25 +11,32 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class BinaryConverter implements ActionListener {
+	JFrame frame;
+	JPanel panel;
+	JButton button;
+	JLabel label;
+	JTextField textfield;
+	
+
 	public static void main(String[] args) {
 		BinaryConverter bc = new BinaryConverter();
-		bc.Window();
+		bc.showWindow();
 	}
 
-	void Window() {
-		JFrame frame = new JFrame();
+	void showWindow() {
+		frame = new JFrame();
+		panel = new JPanel();
+		label = new JLabel();
+		button = new JButton();
+		textfield = new JTextField(20);
 		frame.setVisible(true);
 		frame.setTitle("Convert 8 Bits of Binary to ASCII");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		JPanel panel = new JPanel();
 		frame.add(panel);
-		JTextField textfield = new JTextField(20);
 		panel.add(textfield);
-		JButton button = new JButton();
 		panel.add(button);
 		button.setText("convert");
 		button.addActionListener(this);
-		JLabel label = new JLabel();
 		panel.add(label);
 		frame.pack();
 	}
@@ -38,7 +44,9 @@ public class BinaryConverter implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-
+		String answer = textfield.getText();
+		label.setText(convert(answer));
+		frame.pack();
 	}
 
 	String convert(String input) {
